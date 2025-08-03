@@ -22,6 +22,11 @@
         </a>
       </li>
       <li>
+        <a href="/faq" class:active={$page.url.pathname === '/faq'}>
+          FAQ
+        </a>
+      </li>
+      <li>
         <a href="/contact" class:active={$page.url.pathname === '/contact'}>
           Contact
         </a>
@@ -49,12 +54,12 @@
   ul {
     display: flex;
     overflow-x: auto;
-    background: var(--c-surface-glass);
-    backdrop-filter: blur(10px);
+    background: var(--c-menu-bg);
+    backdrop-filter: blur(15px);
     border-radius: var(--border-radius);
-    box-shadow: 0 2px 12px var(--c-shadow);
+    box-shadow: 0 4px 20px var(--c-shadow);
     margin: 0;
-    padding: 0.2rem;
+    padding: 0.3rem;
     border: 1px solid var(--c-border-glass);
     gap: 0.25rem;
     scrollbar-width: none; /* Firefox */

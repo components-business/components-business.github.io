@@ -64,23 +64,23 @@
     {/each}
   </div>
 
-  <section class="faq-section">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-grid">
-      {#each pageData.faq as item}
-        <div class="faq-item">
-          <h4 class="faq-question">{item.question}</h4>
-          <p class="faq-answer">{item.answer}</p>
-        </div>
-      {/each}
+  <section class="cta-section">
+    <div class="cta-card">
+      <h2>Questions About Our Plans?</h2>
+      <p>Our team is here to help you choose the perfect subscription plan for your needs.</p>
+      <div class="cta-buttons">
+        <a href="/faq" class="cta-primary">View FAQ</a>
+        <a href="/contact" class="cta-secondary">Contact Us</a>
+      </div>
     </div>
   </section>
 </div>
 
 <style>
   .pricing-container {
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
     padding: 0;
     
     /* Smooth entrance animation */
@@ -109,12 +109,14 @@
     grid-template-columns: 1fr; /* Mobile first - single column */
     gap: calc(var(--s) * 1.5);
     margin-bottom: calc(var(--s) * 4);
+    width: 100%;
+    max-width: 100%;
   }
   
   /* Tablet layout */
   @media (min-width: 768px) {
     .pricing-grid {
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: calc(var(--s) * 1.5);
       margin-bottom: calc(var(--s) * 4);
     }
@@ -126,6 +128,9 @@
       grid-template-columns: repeat(3, 1fr);
       gap: calc(var(--s) * 2);
       margin-bottom: calc(var(--s) * 6);
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
@@ -292,46 +297,81 @@
     transform: translateY(-2px);
   }
 
-  .faq-section {
+  .cta-section {
     margin-top: calc(var(--s) * 6);
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--s);
+  }
+
+  .cta-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--border-radius-lg);
+    padding: calc(var(--s) * 3);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     text-align: center;
+    
+    opacity: 0;
+    transform: scale(0.95) translateY(30px);
+    animation: ctaAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: 1.0s;
   }
 
-  .faq-section h2 {
-    font-size: 2rem;
-    margin-bottom: calc(var(--s) * 3);
+  .cta-card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--c-fg);
-    text-shadow: var(--text-shadow);
-  }
-
-  .faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: calc(var(--s) * 2);
-    text-align: left;
-  }
-
-  .faq-item {
-    background: var(--c-surface-glass);
-    border: 1px solid var(--c-border-glass);
-    border-radius: var(--border-radius);
-    padding: calc(var(--s) * 1.5);
-    backdrop-filter: blur(10px);
-  }
-
-  .faq-question {
-    font-size: 1.1rem;
-    font-weight: 600;
     margin-bottom: var(--s);
-    color: var(--c-fg);
     text-shadow: var(--text-shadow);
   }
 
-  .faq-answer {
+  .cta-card p {
+    font-size: 1rem;
     color: var(--color-theme3);
+    margin-bottom: calc(var(--s) * 2);
     line-height: 1.6;
-    margin: 0;
-    text-shadow: var(--text-shadow);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--s);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary, .cta-secondary {
+    padding: calc(var(--s) * 0.875) calc(var(--s) * 1.5);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all var(--animation-speed-fast) var(--animation-ease);
+  }
+
+  .cta-primary {
+    background: linear-gradient(135deg, var(--c-particle-accent4), var(--c-particle-accent2));
+    color: white;
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+  }
+
+  .cta-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--c-fg);
+    border: 2px solid var(--c-particle-accent4);
+  }
+
+  .cta-secondary:hover {
+    background: var(--c-particle-accent4);
+    color: white;
+    transform: translateY(-2px);
   }
 
   /* Staggered card animations */
@@ -387,6 +427,17 @@
     100% {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes ctaAppear {
+    0% {
+      opacity: 0;
+      transform: scale(0.95) translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
     }
   }
 

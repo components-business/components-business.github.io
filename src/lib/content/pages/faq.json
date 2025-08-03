@@ -1,0 +1,78 @@
+{
+  "title": "Frequently Asked Questions",
+  "subtitle": "Everything you need to know about our developer subscription service",
+  "categories": [
+    {
+      "name": "Getting Started",
+      "questions": [
+        {
+          "question": "How quickly can we get started?",
+          "answer": "Most subscriptions begin within 2-3 business days. We match you with developers based on your specific technology stack and project requirements. Our streamlined onboarding process includes a technical consultation call to understand your needs and immediate assignment of your dedicated team."
+        },
+        {
+          "question": "What information do you need to get started?",
+          "answer": "We'll need details about your project scope, preferred technologies, timeline, and any specific skills required. We also discuss your team structure preferences and communication methods to ensure the best fit."
+        },
+        {
+          "question": "Do you offer a trial period?",
+          "answer": "Yes, we offer a 2-week trial period for new clients to evaluate the fit. This allows you to work with your assigned team and ensure they meet your expectations before committing to a full subscription."
+        }
+      ]
+    },
+    {
+      "name": "Subscription Management", 
+      "questions": [
+        {
+          "question": "Can we pause or modify our subscription?",
+          "answer": "Yes, you can pause, upgrade, or downgrade your subscription with 30 days notice. Perfect for seasonal projects or changing business needs. Paused subscriptions can be resumed at any time with the same team members when available."
+        },
+        {
+          "question": "What happens if we need to scale quickly?",
+          "answer": "We can usually add team members within 1-2 weeks. Our talent pool is pre-vetted and ready to onboard quickly. For urgent scaling needs, we offer expedited matching services."
+        },
+        {
+          "question": "How does billing work?",
+          "answer": "We bill monthly in advance. All subscriptions include the full scope of services with no hidden fees. You can update billing information or change payment methods at any time through your client portal."
+        }
+      ]
+    },
+    {
+      "name": "Team & Quality",
+      "questions": [
+        {
+          "question": "What types of developers are available?",
+          "answer": "We have specialists in all major technologies: React/Node.js, Python/Django, .NET, mobile development (iOS/Android), DevOps, cloud architecture (AWS/Azure/GCP), and emerging technologies like AI/ML. All developers have 5+ years of experience."
+        },
+        {
+          "question": "How do you ensure quality and communication?",
+          "answer": "All developers are rigorously vetted with technical assessments, portfolio reviews, and client interviews. We provide regular progress updates, code reviews, documentation, and direct communication channels. Each team includes a technical lead for oversight."
+        },
+        {
+          "question": "Can we interview our assigned developers?",
+          "answer": "Absolutely. We encourage client interviews as part of our matching process. You'll have video calls with potential team members to ensure technical and cultural fit before they start working on your project."
+        },
+        {
+          "question": "What if a team member isn't working out?",
+          "answer": "We offer immediate replacement if any team member doesn't meet expectations. We'll find a new developer within 48-72 hours to maintain project momentum. Your satisfaction is guaranteed."
+        }
+      ]
+    },
+    {
+      "name": "Technical & Security",
+      "questions": [
+        {
+          "question": "How do you handle intellectual property?",
+          "answer": "All code and IP belongs to you. Our developers sign comprehensive NDAs and IP assignment agreements. We use secure development practices and can work within your existing security protocols."
+        },
+        {
+          "question": "Do you support remote team integration?",
+          "answer": "Yes, our developers are experienced with remote collaboration tools like Slack, Zoom, GitHub, and project management platforms. They can adapt to your existing workflows and time zones."
+        },
+        {
+          "question": "What about data security and compliance?",
+          "answer": "We maintain SOC 2 compliance and can meet additional security requirements like HIPAA or PCI DSS. All developers follow strict security protocols and can work with your security team to meet specific compliance needs."
+        }
+      ]
+    }
+  ]
+}

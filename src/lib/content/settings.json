@@ -1,3 +1,10 @@
 {
-  "title": "Components.Business"
+  "title": "Components.Business",
+  "contact": {
+    "email": "team@components.business",
+    "phone": "+1 (555) 123-4567",
+    "slack": "Join our client community for real-time support",
+    "responseTime": "Within 2 hours during business hours",
+    "onboarding": "Most teams start within 48-72 hours"
+  }
 }

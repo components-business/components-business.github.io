@@ -78,21 +78,39 @@
   }
   
   /* Mobile-first responsive breakpoints */
-  @media (max-width: 480px) {
+  @media (max-width: 360px) {
     html {
-      font-size: 14px; /* Smaller base font for mobile */
+      font-size: 13px; /* Extra small mobile */
     }
   }
   
-  @media (min-width: 768px) {
+  @media (min-width: 361px) and (max-width: 480px) {
     html {
-      font-size: 16px;
+      font-size: 14px; /* Small mobile */
     }
   }
   
-  @media (min-width: 1024px) {
+  @media (min-width: 481px) and (max-width: 768px) {
     html {
-      font-size: 18px;
+      font-size: 15px; /* Large mobile/small tablet */
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    html {
+      font-size: 16px; /* Tablet */
+    }
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    html {
+      font-size: 17px; /* Desktop */
+    }
+  }
+  
+  @media (min-width: 1441px) {
+    html {
+      font-size: 18px; /* Large desktop */
     }
   }
 
@@ -109,8 +127,10 @@
 
   /* Sticky menu container */
   .menu-wrapper {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     background-color: transparent;
     padding: var(--s);
@@ -125,27 +145,31 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* breadk overflow axis Y */
+    /* justify-content: center; */
     background-color: transparent;
-    min-height: calc(100vh - 80px); /* Account for sticky menu */
-    padding: calc(var(--s) * 2) var(--s);
+    min-height: 100vh;
+    padding-top: 80px; /* Fixed height for menu */
+    padding-bottom: calc(var(--s) * 2);
   }
 
   /* Main content area styles - Mobile First */
   .main-content {
-    padding: calc(var(--s) * 1.5);
-    background: var(--c-surface-glass);
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 20px var(--c-shadow);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--c-border-glass);
+    padding: calc(var(--s) * 1);
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    border: none;
     width: 100%;
-    max-width: 800px; /* Narrower for better readability */
-    margin: 0 auto; /* Center the content */
+    max-width: 98vw;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
+    flex: 1; /* Take available space */
     
     /* Smooth entrance animation */
     opacity: 0;
@@ -154,8 +178,32 @@
     animation-delay: 0.1s;
   }
   
+  /* Small mobile styles */
+  @media (min-width: 361px) {
+    .main-content {
+      padding: calc(var(--s) * 1.2);
+      max-width: 96vw;
+    }
+  }
+  
+  /* Large mobile styles */
+  @media (min-width: 481px) {
+    .menu-wrapper {
+      padding: calc(var(--s) * 1.2);
+    }
+    
+    .page-content-wrapper {
+      padding: calc(var(--s) * 2) calc(var(--s) * 1.2);
+    }
+    
+    .main-content {
+      padding: calc(var(--s) * 1.5);
+      max-width: 94vw;
+    }
+  }
+  
   /* Tablet styles */
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     .menu-wrapper {
       padding: calc(var(--s) * 1.5);
     }
@@ -166,15 +214,12 @@
     
     .main-content {
       padding: calc(var(--s) * 2);
-      border-radius: var(--border-radius-lg);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 6px 24px var(--c-shadow);
-      max-width: 900px;
+      max-width: 92vw;
     }
   }
   
   /* Desktop styles */
-  @media (min-width: 1024px) {
+  @media (min-width: 1025px) {
     .menu-wrapper {
       padding: calc(var(--s) * 2);
     }
@@ -185,9 +230,14 @@
     
     .main-content {
       padding: calc(var(--s) * 3);
-      backdrop-filter: blur(15px);
-      box-shadow: 0 8px 32px var(--c-shadow);
-      max-width: 1000px;
+      max-width: 88vw;
+    }
+  }
+  
+  /* Large desktop styles */
+  @media (min-width: 1441px) {
+    .main-content {
+      max-width: 1400px;
     }
   }
 
@@ -208,6 +258,7 @@
       --color-surface: rgba(255, 255, 255, 0.85);
       --color-surface-hover: rgba(248, 250, 252, 0.9);
       --color-surface-glass: rgba(255, 255, 255, 0.08);
+      --color-menu-bg: rgba(248, 250, 252, 0.9);
       --shadow-color: rgba(0, 0, 0, 0.15);
       --text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
       --border-glass: rgba(0, 0, 0, 0.1);
@@ -229,6 +280,7 @@
       --color-surface: rgba(17, 24, 39, 0.85);
       --color-surface-hover: rgba(31, 41, 55, 0.9);
       --color-surface-glass: rgba(17, 24, 39, 0.15);
+      --color-menu-bg: rgba(10, 10, 10, 0.9);
       --shadow-color: rgba(0, 0, 0, 0.8);
       --text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
       --border-glass: rgba(255, 255, 255, 0.1);
@@ -242,6 +294,7 @@
     --c-surface: var(--color-surface);
     --c-surface-hover: var(--color-surface-hover);
     --c-surface-glass: var(--color-surface-glass);
+    --c-menu-bg: var(--color-menu-bg);
     --c-shadow: var(--shadow-color);
     --c-text-shadow: var(--text-shadow);
     --c-border-glass: var(--border-glass);
