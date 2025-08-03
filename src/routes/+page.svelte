@@ -1,5 +1,6 @@
 <script>
-  import settings from "$lib/content/settings.json"
+  import Assemblage from "$lib/components/scene/Assemblage.svelte";
 </script>
 
-<h1>Welcome to {settings.title}</h1>
+<Assemblage />
+
