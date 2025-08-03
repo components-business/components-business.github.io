@@ -247,7 +247,7 @@
     display: inline-block;
     padding: calc(var(--s) * 0.75) calc(var(--s) * 1.5);
     border: 1px solid var(--c-fg);
-    color: white;
+    color: var(--c-fg);
     text-decoration: none;
     border-radius: var(--border-radius);
     font-weight: 600;
@@ -409,7 +409,7 @@
 
   .cta-primary {
     background: linear-gradient(135deg, var(--c-particle-accent4), var(--c-particle-accent2));
-    color: white;
+    color: var(--c-fg);
   }
 
   .cta-primary:hover {
