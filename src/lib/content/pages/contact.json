@@ -11,7 +11,7 @@
     },
     {
       "type": "image",
-      "src": "/images/contact-image.jpg",
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMTAiLz48cGF0aCBkPSJNMzIgMTJ2LThNMzIgNjB2LThNMTIgMzJoLThNNjAgMzJoLThNNDUuMjUgMTguNzVsNS42Ni01LjY2TTEzLjA5IDQ2LjkxbC01LjY2IDUuNjZNNDUuMjUgNDUuMjVsNS42NiA1LjY2TTEzLjA5IDE3LjA5bC01LjY2LTUuNjYiLz48L3N2Zz4=",
       "alt": "Contact Us image"
     }
   ]

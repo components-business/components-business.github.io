@@ -101,6 +101,7 @@
     --c-bg: var(--color-theme0);
     --c-fg: var(--color-theme1);
     --c-a: var(--color-theme4);
+    --c-bg--svg: var(--color-theme3);
     --s: 0.5rem;
   }
   :global {
@@ -110,6 +111,15 @@
     }
     a {
       color: var(--c-a);
+    }
+    img {
+      width: auto;
+      max-width: 100%;
+    }
+    img[src^="data:image/svg+xml;base64,"] {
+      max-width: 4rem;
+      background-color: var(--c-bg--svg);
+      border-radius: var(--s);
     }
   }
 </style>

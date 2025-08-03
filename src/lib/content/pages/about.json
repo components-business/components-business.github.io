@@ -7,7 +7,7 @@
     },
     {
       "type": "image",
-      "src": "/images/about-image.jpg",
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTggMjhMMzIgOGwyNCAyMHYyOGE0IDQgMCAwIDEtNCA0SDEyYTQgNCAwIDAgMS00LTRWMjhabT I0IDY0VjQwaDE2djI0Ii8+PC9zdmc+",
       "alt": "About Us image"
     },
     {
