@@ -7,5 +7,6 @@ export const sceneStore = writable({
   componentSpeed: 0.05,
   sceneState: 'mesh', // 'mesh' or 'sphere'
   cameraPosition: [0, 0, 10],
-  cameraLookAt: [0, 0, 0]
+  cameraLookAt: [0, 0, 0],
+  particleColor: '#007bff' // Default color
 });

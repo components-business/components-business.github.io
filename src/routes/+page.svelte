@@ -6,10 +6,10 @@
     sceneStore.set({
       centralStructureTargetPosition: [0, 0, 0],
       centralStructureTargetRotation: [0, 0, 0],
-      componentSpawnRate: 10,
-      componentSpeed: 0.05,
+      componentSpawnRate: 50,
+      componentSpeed: 0.01,
       sceneState: 'mesh',
-      cameraPosition: [0, 0, 10], // Outside view
+      cameraPosition: [0, 0, 10], // Adjusted for smaller, more square shape
       cameraLookAt: [0, 0, 0]
     })
   })

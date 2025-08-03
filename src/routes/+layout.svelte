@@ -2,8 +2,16 @@
   import favicon from '$lib/assets/favicon.svg';
   import Menu from "$lib/components/site/menu.svelte";
   import Assemblage from "$lib/components/scene/Assemblage.svelte";
+  import { sceneStore } from "$lib/stores/sceneStore";
+  import { onMount } from 'svelte';
 
   let { children } = $props();
+
+  onMount(() => {
+    const computedStyle = getComputedStyle(document.documentElement);
+    const particleColor = computedStyle.getPropertyValue('--c-fg').trim();
+    sceneStore.update(store => ({ ...store, particleColor }));
+  });
 </script>
 
 <svelte:head>

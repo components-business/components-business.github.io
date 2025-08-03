@@ -47,6 +47,16 @@
     return [x, y, z]
   }
 
+  // Function to calculate target positions for scatter state
+  const getScatterTargetPosition = () => {
+    const range = 60; // Define the range for scattering
+    return [
+      (Math.random() - 0.5) * range,
+      (Math.random() - 0.5) * range,
+      (Math.random() - 0.5) * range
+    ];
+  }
+
   // Initialize components
   onMount(() => {
     for (let i = 0; i < numComponents; i++) {
@@ -60,9 +70,21 @@
     }
   })
 
+  let lightRotationAngle = 0;
+  let lightPosition = [5, 5, 5]; // Initial position
+
   useTask((delta) => {
     // Rotate central structure (or the entire group of components)
     centralStructureRotationY += delta * 0.1
+
+    // Rotate the light
+    lightRotationAngle += delta * 0.5; // Adjust speed as needed
+    const radius = 10; // Distance from center
+    lightPosition = [
+      radius * Math.sin(lightRotationAngle),
+      5, // Keep y constant or vary as needed
+      radius * Math.cos(lightRotationAngle)
+    ];
 
     componentData = componentData.map((component, index) => {
       let targetPosition
@@ -70,6 +92,8 @@
         targetPosition = getMeshTargetPosition(index)
       } else if (sceneState === 'sphere') {
         targetPosition = getSphereTargetPosition(index)
+      } else if (sceneState === 'scatter') {
+        targetPosition = getScatterTargetPosition()
       } else {
         targetPosition = [0, 0, 0] // Default to center if state is unknown
       }
@@ -88,12 +112,22 @@
   })
 </script>
 
-<T.PerspectiveCamera makeDefault position={[0, 0, 10]}>
+<T.PerspectiveCamera makeDefault position={$tweenedCameraPosition} lookAt={$tweenedCameraLookAt}>
   
 </T.PerspectiveCamera>
 
 <T.AmbientLight intensity={0.5} />
-<T.DirectionalLight position={[5, 5, 5]} />
+<!-- Rotating Directional Light -->
+<T.DirectionalLight
+  position={lightPosition}
+  intensity={1}
+  castShadow={true}
+>
+  <T.OrthographicCamera
+    slot="shadow-camera"
+    args={[-10, 10, 10, -10, 0.1, 50]}
+  />
+</T.DirectionalLight>
 
 <!-- Components -->
 <T.Group
@@ -103,9 +137,9 @@
   rotation.z={$tweenedCentralStructureTargetRotation[2]}
 >
   {#each componentData as component (component.id)}
-    <T.Mesh position={[component.x, component.y, component.z]}>
+    <T.Mesh position={[component.x, component.y, component.z]} castShadow={true} receiveShadow={true}>
       <T.BoxGeometry args={[0.1, 0.1, 0.1]} />
-      <T.MeshStandardMaterial color="#007bff" />
+      <T.MeshStandardMaterial color={$sceneStore.particleColor} />
     </T.Mesh>
   {/each}
 </T.Group>

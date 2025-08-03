@@ -6,10 +6,10 @@
     sceneStore.set({
       centralStructureTargetPosition: [0, 0, 0],
       centralStructureTargetRotation: [0, 0, 0],
-      componentSpawnRate: 10,
-      componentSpeed: 0.05,
-      sceneState: 'sphere',
-      cameraPosition: [0, 0, 7], // Entire sphere visible
+      componentSpawnRate: 0.1,
+      componentSpeed: 5.0,
+      sceneState: 'scatter',
+      cameraPosition: [0, 0, 100],
       cameraLookAt: [0, 0, 0]
     })
   })
@@ -19,4 +19,4 @@
   })
 </script>
 
-<h1>About</h1>
+<h1>Contact</h1>
