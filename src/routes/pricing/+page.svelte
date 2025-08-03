@@ -251,6 +251,7 @@
 
   .feature-item {
     display: flex;
+    text-align: left;
     align-items: center;
     padding: calc(var(--s) * 0.5) 0;
     color: var(--c-fg);
