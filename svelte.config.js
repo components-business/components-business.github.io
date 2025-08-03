@@ -1,6 +1,8 @@
 // import adapter from '@sveltejs/adapter-auto';
 import adapter from "@sveltejs/adapter-static";
 
+const base = process.argv.includes("dev") ? "" : process.env.BASE_PATH || "";
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
@@ -13,6 +15,7 @@ const config = {
       pages: "build",
       assets: "build",
       fallback: undefined,
+      fallback: `${base}/index.html`,
       precompress: false,
       strict: true,
     }),
