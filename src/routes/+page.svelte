@@ -1,5 +1,4 @@
 <script>
-  import settings from "$lib/content/settings.json"
   import { sceneStore } from '../lib/stores/sceneStore'
   import { onMount, onDestroy } from 'svelte'
 
@@ -21,5 +20,5 @@
   })
 </script>
 
-<h1>Welcome to {settings.title}</h1>
+<h1>Home</h1>
 

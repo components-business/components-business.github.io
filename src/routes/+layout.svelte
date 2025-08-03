@@ -65,7 +65,6 @@
   .main-content {
     flex-grow: 1; /* Takes available space */
     overflow-y: auto; /* Allows content to scroll independently */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
     /* No explicit pointer-events here, defaults to auto */
   }
 
@@ -94,6 +93,7 @@
     --c-bg: var(--color-theme0);
     --c-fg: var(--color-theme1);
     --c-a: var(--color-theme4);
+    --s: 0.5rem;
   }
   :global {
     html {
