@@ -52,6 +52,7 @@
   }
   
   ul {
+    list-style: none;
     display: flex;
     overflow-x: auto;
     background: var(--c-menu-bg);
@@ -74,7 +75,7 @@
     display: inline-flex;
     align-items: center;
     padding: calc(var(--s) * 0.6) calc(var(--s) * 0.8);
-    text-transform: lowercase;
+    text-transform: capitalize;
     text-decoration: none;
     border-radius: var(--border-radius-sm);
     font-weight: 500;

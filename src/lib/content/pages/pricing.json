@@ -1,59 +1,59 @@
 {
   "title": "Developer Subscription Plans",
-  "subtitle": "Hire world-class developers and IT experts on a flexible subscription basis",
+  "subtitle": "Empowering collaborative growth through accessible, flexible development partnerships.",
   "plans": [
     {
-      "name": "Essential",
-      "price": "$8,000",
+      "name": "Community",
+      "price": "$2,500",
       "period": "/month",
-      "description": "Perfect for startups and small teams",
+      "description": "For individuals and small initiatives driving positive change.",
       "features": [
-        "1 dedicated developer",
-        "Full-stack or specialized roles",
-        "40 hours per week",
-        "Direct team communication",
-        "Code reviews & documentation",
-        "Pause or cancel anytime"
+        "1-2 days per week engagement",
+        "Focus on open-source or social impact projects",
+        "Direct collaboration with diverse talent",
+        "Knowledge sharing & mentorship",
+        "Flexible terms for sustainable development",
+        "Join a network of changemakers"
       ],
       "highlight": false,
-      "cta": "Start Subscription"
+      "cta": "Join the Community"
     },
     {
-      "name": "Growth",
-      "price": "$22,000",
+      "name": "Synergy",
+      "price": "$7,000",
       "period": "/month",
-      "description": "Ideal for scaling companies and complex projects",
+      "description": "For growing organizations fostering inclusive and symbiotic solutions.",
       "features": [
-        "3 dedicated team members",
-        "Mix of developers & architects",
-        "120 hours per week total",
-        "Project management included",
-        "Technical strategy sessions",
-        "Priority support",
-        "Advanced integrations",
-        "Monthly progress reviews"
+        "3-4 days per week engagement",
+        "Cross-functional, inclusive teams",
+        "Collaborative project leadership",
+        "Strategic impact planning",
+        "Accelerated development for shared growth",
+        "Priority access to new initiatives",
+        "Dedicated support for evolving needs",
+        "Regular impact reviews"
       ],
       "highlight": true,
-      "cta": "Scale Your Team"
+      "cta": "Cultivate Synergy"
     },
     {
-      "name": "Enterprise",
-      "price": "$45,000",
+      "name": "Ecosystem",
+      "price": "$15,000",
       "period": "/month",
-      "description": "For large organizations and mission-critical projects",
+      "description": "For large-scale endeavors building resilient, interconnected societies.",
       "features": [
-        "6+ dedicated experts",
-        "Senior developers & architects",
-        "Full-time team availability",
-        "Dedicated project manager",
-        "Technical leadership",
-        "Custom integrations",
-        "SLA guarantees",
-        "Weekly stakeholder calls",
-        "Enterprise security compliance"
+        "5 days per week engagement",
+        "Senior architects & thought leaders",
+        "Holistic ecosystem development",
+        "Integrated strategic partnerships",
+        "Driving systemic change",
+        "Custom solutions for global impact",
+        "Guaranteed long-term support",
+        "Continuous innovation cycles",
+        "Ethical AI & sustainable tech focus"
       ],
       "highlight": false,
-      "cta": "Get Enterprise Team"
+      "cta": "Build the Ecosystem"
     }
   ],
   "faq": [

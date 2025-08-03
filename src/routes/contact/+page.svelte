@@ -27,26 +27,15 @@
       <a href="mailto:{settings.contact.email}" class="contact-cta">Send Email</a>
     </div>
 
-    <div class="contact-card phone-card">
+    <div class="contact-card matrix-card">
       <div class="card-icon">
         <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.75 15.5h-3.5v-3.5h3.5v3.5zm-3.5-4.5h-3.5v-3.5h3.5v3.5zm-4.5 0h-3.5v-3.5h3.5v3.5zm0 4.5h-3.5v-3.5h3.5v3.5z"/>
         </svg>
       </div>
-      <h3>Phone</h3>
-      <p>{settings.contact.phone}</p>
-      <a href="tel:{settings.contact.phone.replace(/[^\d+]/g, '')}" class="contact-cta">Call Now</a>
-    </div>
-
-    <div class="contact-card slack-card">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/>
-        </svg>
-      </div>
-      <h3>Slack</h3>
-      <p>{settings.contact.slack}</p>
-      <a href="#" class="contact-cta">Join Slack</a>
+      <h3>Matrix</h3>
+      <p>@team:components.business</p>
+      <a href="https://matrix.to/#/@team:components.business" class="contact-cta">Join Matrix</a>
     </div>
   </div>
 </div>
@@ -147,7 +136,7 @@
   .contact-methods {
     width: 100%;
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 0 auto; /* Center the section */
     padding: 0 var(--s);
   }
 
@@ -171,12 +160,15 @@
     gap: calc(var(--s) * 1.5);
     margin-bottom: calc(var(--s) * 4);
     width: 100%;
+    justify-items: center; /* Center grid items horizontally */
+    justify-content: center; /* Center the grid itself */
   }
 
   @media (min-width: 480px) {
     .methods-grid {
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: calc(var(--s) * 1.5);
+      justify-content: center; /* Center the grid itself */
     }
   }
 
@@ -195,13 +187,13 @@
   }
 
   .contact-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--c-surface); /* Use a more opaque surface variable */
+    border: 1px solid var(--c-border-glass); /* Use border glass variable */
     border-radius: var(--border-radius);
     padding: calc(var(--s) * 2);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    text-align: center; /* Center text */
     transition: all var(--animation-speed-fast) var(--animation-ease);
     
     opacity: 0;
@@ -212,7 +204,7 @@
   .contact-card:hover,
   .contact-card:focus,
   .contact-card:active {
-    background: rgba(255, 255, 255, 0.18);
+    background: var(--c-surface-hover); /* Use hover surface variable */
     border-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(15px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -221,7 +213,6 @@
 
   .contact-card:nth-child(1) { animation-delay: 0.5s; }
   .contact-card:nth-child(2) { animation-delay: 0.7s; }
-  .contact-card:nth-child(3) { animation-delay: 0.9s; }
 
   .card-icon {
     width: 64px;
@@ -279,7 +270,7 @@
   .info-section {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* Center the section */
     padding: 0 var(--s);
   }
 
@@ -289,24 +280,29 @@
     gap: calc(var(--s) * 1.5);
     margin-bottom: calc(var(--s) * 4);
     width: 100%;
+    justify-items: center; /* Center grid items horizontally */
+    justify-content: center; /* Center the grid itself */
   }
 
   @media (min-width: 600px) {
     .info-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: calc(var(--s) * 2);
+      justify-content: center; /* Center the grid itself */
     }
   }
 
   .info-card {
-    background: rgba(255, 255, 255, 0.01);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--c-surface); /* Use a more opaque surface variable */
+    border: 1px solid var(--c-border-glass); /* Use border glass variable */
     border-radius: var(--border-radius);
     padding: calc(var(--s) * 1.5);
     backdrop-filter: blur(6px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Arrange content vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text */
     transition: all var(--animation-speed-fast) var(--animation-ease);
     
     opacity: 0;
@@ -317,7 +313,7 @@
   .info-card:hover,
   .info-card:focus,
   .info-card:active {
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--c-surface-hover); /* Use hover surface variable */
     border-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(12px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
@@ -335,7 +331,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: var(--s);
+    margin: 0 auto var(--s); /* Centered horizontally */
     color: rgba(255, 255, 255, 0.85);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
@@ -372,8 +368,8 @@
   }
 
   .cta-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--c-surface); /* Use a more opaque surface variable */
+    border: 1px solid var(--c-border-glass); /* Use border glass variable */
     border-radius: var(--border-radius-lg);
     padding: calc(var(--s) * 3);
     backdrop-filter: blur(8px);

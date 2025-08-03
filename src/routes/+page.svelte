@@ -220,7 +220,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--s);
+    margin: 0 auto var(--s); /* Centered horizontally */
     color: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
