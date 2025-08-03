@@ -1,0 +1,14 @@
+{
+  "title": "Welcome to the Homepage",
+  "blocks": [
+    {
+      "type": "text",
+      "content": "This is the main page of our site. Explore the interactive scene behind the content!"
+    },
+    {
+      "type": "image",
+      "src": "/images/home-image.jpg",
+      "alt": "Homepage image"
+    }
+  ]
+}

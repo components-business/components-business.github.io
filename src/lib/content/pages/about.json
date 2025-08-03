@@ -1,0 +1,18 @@
+{
+  "title": "About Us",
+  "blocks": [
+    {
+      "type": "text",
+      "content": "We are a team of passionate developers creating amazing web experiences."
+    },
+    {
+      "type": "image",
+      "src": "/images/about-image.jpg",
+      "alt": "About Us image"
+    },
+    {
+      "type": "text",
+      "content": "Our mission is to push the boundaries of what's possible on the web."
+    }
+  ]
+}

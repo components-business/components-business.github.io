@@ -1,6 +1,7 @@
 <script>
-  import { sceneStore } from '../../lib/stores/sceneStore'
-  import { onMount, onDestroy } from 'svelte'
+  import { sceneStore } from '../../lib/stores/sceneStore';
+  import { onMount, onDestroy } from 'svelte';
+  import pageData from '../../lib/content/pages/about.json';
 
   onMount(() => {
     sceneStore.set({
@@ -9,14 +10,21 @@
       componentSpawnRate: 10,
       componentSpeed: 0.05,
       sceneState: 'sphere',
-      cameraPosition: [0, 0, 7], // Entire sphere visible
+      cameraPosition: [0, 0, 7],
       cameraLookAt: [0, 0, 0]
-    })
-  })
+    });
+  });
 
   onDestroy(() => {
     // Optionally reset to a default or neutral state when leaving the page
-  })
+  });
 </script>
 
-<h1>About</h1>
+<h1>{pageData.title}</h1>
+{#each pageData.blocks as block}
+  {#if block.type === 'text'}
+    <p>{block.content}</p>
+  {:else if block.type === 'image'}
+    <img src={block.src} alt={block.alt} />
+  {/if}
+{/each}

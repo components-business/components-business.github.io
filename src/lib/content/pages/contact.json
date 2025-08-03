@@ -1,0 +1,18 @@
+{
+  "title": "Contact Us",
+  "blocks": [
+    {
+      "type": "text",
+      "content": "Feel free to reach out to us through the following channels:"
+    },
+    {
+      "type": "text",
+      "content": "Email: info@example.com"
+    },
+    {
+      "type": "image",
+      "src": "/images/contact-image.jpg",
+      "alt": "Contact Us image"
+    }
+  ]
+}
