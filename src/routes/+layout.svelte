@@ -1,22 +1,75 @@
 <script>
-	import favicon from '$lib/assets/favicon.svg';
-  import Menu from "$lib/components/site/menu.svelte"
+  import favicon from '$lib/assets/favicon.svg';
+  import Menu from "$lib/components/site/menu.svelte";
+  import Assemblage from "$lib/components/scene/Assemblage.svelte";
 
-	let { children } = $props();
+  let { children } = $props();
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+  <link rel="icon" href={favicon} />
 </svelte:head>
 
-<Menu/>
+<div class="scene-background">
+  <Assemblage />
+</div>
 
-{@render children?.()}
+<div class="page-content-wrapper">
+  <Menu/>
+  <main class="main-content">
+    {@render children?.()}
+  </main>
+</div>
 
 <style is:global>
+  /* Reset and base styles */
   *, *::before, *::after {
-	  box-sizing: border-box;
+    box-sizing: border-box;
   }
+  html, body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling on html/body */
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Scene background styles */
+  .scene-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0; /* Bottom layer */
+    pointer-events: auto; /* Allow interaction with the scene */
+  }
+
+  /* Page content wrapper styles */
+  .page-content-wrapper {
+    position: fixed; /* Covers the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* Above the scene */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Allow content to scroll */
+    background-color: transparent; /* Allow scene to show through */
+  }
+
+  /* Main content area styles */
+  .main-content {
+    flex-grow: 1; /* Takes available space */
+    overflow-y: auto; /* Allows content to scroll independently */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    /* No explicit pointer-events here, defaults to auto */
+  }
+
+  /* Theme colors (from previous versions) */
   @media (prefers-color-scheme: light) {
     :root {
       --color-theme0: #FFFFFF;

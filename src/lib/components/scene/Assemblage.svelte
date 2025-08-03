@@ -8,3 +8,10 @@
     <Scene />
   </Canvas>
 </div>
+
+<style>
+  .h-screen {
+    height: 100%;
+    width: 100%;
+  }
+</style>
