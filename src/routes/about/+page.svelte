@@ -219,6 +219,7 @@
   .value-header {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: var(--s);
   }
 

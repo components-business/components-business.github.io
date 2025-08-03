@@ -68,7 +68,6 @@
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding: var(--s);
     text-align: center;
     opacity: 0;
     transform: scale(0.96) translateY(30px);
@@ -155,6 +154,8 @@
     ul {
       text-align: left;
       list-style: none;
+      margin: 0;
+      padding: 0;
     }
   }
 
