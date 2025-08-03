@@ -72,6 +72,78 @@
     return [x, y, z];
   }
 
+  // New function for Contact page animation: Dynamic Connections (Refined)
+  const getContactTargetPosition = (index, time) => {
+    const numHubs = 3; // Number of communication hubs
+    const hubRadius = 4; // Radius of the circle on which hubs are placed
+    const hubHeight = 1.5; // Vertical spread of hubs
+
+    // Define hub positions
+    const hubs = [];
+    for (let i = 0; i < numHubs; i++) {
+      const angle = (i / numHubs) * Math.PI * 2 + time * 0.08; // Hubs slowly rotate
+      hubs.push([
+        Math.cos(angle) * hubRadius,
+        Math.sin(angle * 3) * hubHeight, // More dynamic height variation
+        Math.sin(angle) * hubRadius
+      ]);
+    }
+
+    // Particles flow between random pairs of hubs, with a more defined path
+    const startHubIndex = Math.floor(index / (numComponents / numHubs));
+    const endHubIndex = (startHubIndex + 1) % numHubs; // Flow to the next hub in sequence
+
+    const startHub = hubs[startHubIndex];
+    const endHub = hubs[endHubIndex];
+
+    // Use a smoother, more controlled flow progress
+    const flowProgress = (Math.sin(time * 0.8 + index * 0.02) + 1) / 2; // Smoother, slightly faster flow
+
+    const x = startHub[0] + (endHub[0] - startHub[0]) * flowProgress;
+    const y = startHub[1] + (endHub[1] - startHub[1]) * flowProgress;
+    const z = startHub[2] + (endHub[2] - startHub[2]) * flowProgress;
+
+    return [x, y, z];
+  };
+
+  // New function for FAQ page animation: Structured Inquiry (Refined)
+  const getFaqTargetPosition = (index, time) => {
+    const numColumns = 5; // Number of FAQ categories/columns
+    const particlesPerColumn = numComponents / numColumns;
+    const columnIndex = Math.floor(index / particlesPerColumn);
+
+    const columnSpacing = 3; // Distance between columns
+    const columnHeight = 5; // Height of each column
+    const particleSpacing = 0.5; // Spacing between particles in a column
+
+    // Calculate target X position for the column
+    const targetX = (columnIndex - (numColumns - 1) / 2) * columnSpacing;
+
+    // Calculate target Y position within the column
+    const targetY = (index % particlesPerColumn - particlesPerColumn / 2) * particleSpacing;
+
+    // Add subtle Z-depth variation and a pulsing effect for "revealed answers"
+    const pulse = Math.sin(time * 5 + index * 0.5) * 0.2; // Faster pulse
+    const targetZ = Math.sin(time * 0.5 + index * 0.1) * 0.5 + pulse;
+
+    // Initial scattered position for a more dramatic transition
+    const initialSpread = 20; // Wider initial spread
+    const initialX = (Math.random() - 0.5) * initialSpread;
+    const initialY = (Math.random() - 0.5) * initialSpread;
+    const initialZ = (Math.random() - 0.5) * initialSpread;
+
+    // Transition from scattered to organized columns with a cubic ease for more impact
+    const transitionProgress = Math.min(1, time * 0.5); // Slower transition for more visual impact
+    const easedProgress = transitionProgress * transitionProgress * (3 - 2 * transitionProgress); // Cubic ease-in-out
+
+    const x = initialX + (targetX - initialX) * easedProgress;
+    const y = initialY + (targetY - initialY) * easedProgress;
+    const z = initialZ + (targetZ - initialZ) * easedProgress;
+
+    return [x, y, z];
+  };
+
+
   // Initialize components
   onMount(() => {
     for (let i = 0; i < numComponents; i++) {
@@ -141,6 +213,10 @@
         targetPosition = getScatterTargetPosition()
       } else if (sceneState === 'pricing') {
         targetPosition = getPricingTargetPosition(index)
+      } else if (sceneState === 'contact') { // New contact state
+        targetPosition = getContactTargetPosition(index, time)
+      } else if (sceneState === 'faq') { // New FAQ state
+        targetPosition = getFaqTargetPosition(index, time)
       } else {
         targetPosition = [0, 0, 0] // Default to center if state is unknown
       }

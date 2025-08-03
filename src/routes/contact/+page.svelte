@@ -1,28 +1,7 @@
 <script>
-  import { sceneStore } from '../../lib/stores/sceneStore';
-  import { onMount, onDestroy } from 'svelte';
   import settings from '../../lib/content/settings.json';
   let { data } = $props();
   const pageData = data.contactPageData;
-
-  onMount(() => {
-    sceneStore.update(store => ({
-      ...store,
-      centralStructureTargetPosition: [0, 0, 0],
-      centralStructureTargetRotation: [0, 0, 0],
-      componentSpawnRate: 0.1,
-      componentSpeed: 5.0,
-      sceneState: 'scatter',
-      cameraPosition: [0, 0, 15],
-      cameraLookAt: [0, 0, 0],
-      colorAnimationEnabled: true,
-      particleAnimationSpeed: 2.0
-    }));
-  });
-
-  onDestroy(() => {
-    // Optionally reset to a default or neutral state when leaving the page
-  });
 </script>
 
 <!-- Contact Header -->

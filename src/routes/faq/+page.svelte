@@ -1,27 +1,6 @@
 <script>
-  import { sceneStore } from '../../lib/stores/sceneStore';
-  import { onMount, onDestroy } from 'svelte';
   let { data } = $props();
   const pageData = data.faqPageData;
-
-  onMount(() => {
-    sceneStore.update(store => ({
-      ...store,
-      centralStructureTargetPosition: [0, 0, 0],
-      centralStructureTargetRotation: [0, 0, 0],
-      componentSpawnRate: 20,
-      componentSpeed: 0.02,
-      sceneState: 'scatter',
-      cameraPosition: [0, 0, 8],
-      cameraLookAt: [0, 0, 0],
-      colorAnimationEnabled: true,
-      particleAnimationSpeed: 1.0
-    }));
-  });
-
-  onDestroy(() => {
-    // Reset to a default state when leaving the page
-  });
 </script>
 
 <!-- FAQ Header -->
