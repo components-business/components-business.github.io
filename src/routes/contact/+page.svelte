@@ -27,16 +27,16 @@
       <a href="mailto:{settings.contact.email}" class="contact-cta">Send Email</a>
     </div>
 
-    <div class="contact-card matrix-card">
-      <div class="card-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.75 15.5h-3.5v-3.5h3.5v3.5zm-3.5-4.5h-3.5v-3.5h3.5v3.5zm-4.5 0h-3.5v-3.5h3.5v3.5zm0 4.5h-3.5v-3.5h3.5v3.5z"/>
-        </svg>
-      </div>
-      <h3>Matrix</h3>
-      <p>@team:components.business</p>
-      <a href="https://matrix.to/#/@team:components.business" class="contact-cta">Matrix Chat</a>
-    </div>
+    <!-- <div class="contact-card matrix-card"> -->
+    <!--   <div class="card-icon"> -->
+    <!--     <svg viewBox="0 0 24 24" fill="currentColor"> -->
+    <!--       <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.75 15.5h-3.5v-3.5h3.5v3.5zm-3.5-4.5h-3.5v-3.5h3.5v3.5zm-4.5 0h-3.5v-3.5h3.5v3.5zm0 4.5h-3.5v-3.5h3.5v3.5z"/> -->
+    <!--     </svg> -->
+    <!--   </div> -->
+    <!--   <h3>Matrix</h3> -->
+    <!--   <p>@team:components.business</p> -->
+    <!--   <a href="https://matrix.to/#/@team:components.business" class="contact-cta">Matrix Chat</a> -->
+    <!-- </div> -->
   </div>
 </div>
 
