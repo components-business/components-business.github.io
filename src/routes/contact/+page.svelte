@@ -1,7 +1,8 @@
 <script>
   import { sceneStore } from '../../lib/stores/sceneStore';
   import { onMount, onDestroy } from 'svelte';
-  import pageData from '../../lib/content/pages/contact.json';
+  let { data } = $props();
+  const pageData = data.contactPageData;
 
   onMount(() => {
     sceneStore.set({

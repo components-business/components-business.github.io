@@ -5,7 +5,7 @@
   import { sceneStore } from "$lib/stores/sceneStore";
   import { onMount } from 'svelte';
 
-  let { children } = $props();
+  let { children, data } = $props();
 
   onMount(() => {
     const computedStyle = getComputedStyle(document.documentElement);
