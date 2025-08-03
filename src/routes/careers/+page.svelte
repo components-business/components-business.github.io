@@ -50,7 +50,7 @@
     <ul>
       <li><strong>Global Opportunities:</strong> We hire talented individuals from around the world, fostering a truly diverse and inclusive team.</li>
       <li><strong>Comprehensive Social Healthcare:</strong> Full social healthcare coverage for you and your family, ensuring peace of mind.</li>
-      <li><strong>Equal Salary for All Positions:</strong> A commitment to fair compensation with equal salaries across all roles, promoting equity and transparency.</li>
+      <li><strong>Equal Salary for All Positions:</strong> We believe in true equity. All positions, regardless of title or department, receive the same base salary. Progression in compensation is tied directly to demonstrated skills and experience, much like a transparent pricing model where value increases with capability, not hierarchy. This ensures fairness and rewards individual growth.</li>
       <li><strong>Investment in Infrastructure:</strong> 100% investment in building our own sustainable infrastructure, including housing constructed from ecological materials.</li>
       <li><strong>Craftsmanship Focus:</strong> We value and cultivate a culture of craftsmanship, where quality, thoughtful design, and long-term vision are paramount.</li>
     </ul>
@@ -81,7 +81,7 @@
     font-weight: 800;
     color: var(--c-fg);
     text-shadow: var(--text-shadow);
-    margin-bottom: calc(var(--s) * 0.5);
+    margin-bottom: calc(var(--s) * 2);
   }
 
   .careers-header .subtitle {
@@ -92,14 +92,8 @@
     text-shadow: var(--text-shadow);
   }
 
-  .careers-intro p,
-  .careers-roles p,
-  .careers-cta p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--color-theme3);
-    margin-bottom: var(--s);
-    text-shadow: var(--text-shadow);
+  .careers-intro {
+    margin-top: calc(var(--s) * 3);
   }
 
   .careers-roles h2,
@@ -119,24 +113,49 @@
     max-width: 600px;
   }
 
-  .careers-roles li {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--border-radius);
-    padding: var(--s);
+  .careers-roles li,
+  .careers-benefits li {
+    background: var(--c-surface-glass);
+    border: 1px solid var(--c-border-glass);
+    border-radius: var(--border-radius-lg);
+    padding: calc(var(--s) * 1.5);
     margin-bottom: var(--s);
     text-align: left;
     color: var(--c-fg);
-    font-size: 1rem;
-    line-height: 1.5;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    box-shadow: 0 4px 16px var(--c-shadow);
     transition: all var(--animation-speed-fast) var(--animation-ease);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: listItemAppear 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
-  .careers-roles li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    border-color: var(--c-particle-accent4);
+  .careers-roles li:nth-child(1) { animation-delay: 0.3s; }
+  .careers-roles li:nth-child(2) { animation-delay: 0.4s; }
+  .careers-roles li:nth-child(3) { animation-delay: 0.5s; }
+  .careers-roles li:nth-child(4) { animation-delay: 0.6s; }
+  .careers-roles li:nth-child(5) { animation-delay: 0.7s; }
+
+  .careers-benefits li:nth-child(1) { animation-delay: 0.8s; }
+  .careers-benefits li:nth-child(2) { animation-delay: 0.9s; }
+  .careers-benefits li:nth-child(3) { animation-delay: 1.0s; }
+  .careers-benefits li:nth-child(4) { animation-delay: 1.1s; }
+  .careers-benefits li:nth-child(5) { animation-delay: 1.2s; }
+
+  .careers-roles li:hover,
+  .careers-benefits li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border-color: var(--c-particle-accent2);
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .careers-benefits {
+    ul {
+      text-align: left;
+      list-style: none;
+    }
   }
 
   .cta-button {
@@ -169,6 +188,17 @@
     100% {
       opacity: 1;
       transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes listItemAppear {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>

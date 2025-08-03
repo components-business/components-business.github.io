@@ -65,20 +65,6 @@
   </div>
 </div>
 
-<!-- Call to Action -->
-{#if pageData.blocks[6]?.content}
-  <div class="cta-section">
-    <div class="cta-card">
-      <h3>Ready to Get Started?</h3>
-      <p>{pageData.blocks[6].content}</p>
-      <div class="cta-buttons">
-        <a href="/pricing" class="cta-primary">View Pricing</a>
-        <a href="mailto:{settings.contact.email}" class="cta-secondary">Schedule Call</a>
-      </div>
-    </div>
-  </div>
-{/if}
-
 <style>
   .contact-header {
     text-align: center;
@@ -324,8 +310,9 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--s); /* Centered horizontally */
-    color: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--c-fg);
+    background-color: var(--c-bg);
+    border: 1px solid var(--c-border);
   }
 
   .info-icon svg {

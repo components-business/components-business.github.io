@@ -151,7 +151,7 @@
 
     const gridSize = Math.ceil(Math.cbrt(numComponents));
     const solidSquareScale = 2; // Adjust for medium size
-    const solidSpacing = 0.1; // No space between particles
+        const solidSpacing = 0; // No space between particles // No space between particles
     const maxExplosionDistance = 10;
 
     let targetX, targetY, targetZ;
@@ -206,10 +206,10 @@
       targetZ = initialScatteredPos[2] * (1 - progress) + looseGridPos[2] * progress;
 
       // Add communication oscillation on top of the interpolation
-      const communicationOscillation = (Math.sin(time * 0.5 + index * 0.05) + 1) / 2 * 0.5; // 0 to 0.5
-      targetX += Math.sin(time * 2 + index) * communicationOscillation;
-      targetY += Math.cos(time * 2 + index) * communicationOscillation;
-      targetZ += Math.sin(time * 2 + index + Math.PI / 2) * communicationOscillation;
+      const communicationOscillation = (Math.sin(time * 0.8 + index * 0.1) + 1) / 2 * 1.0; // More pronounced oscillation
+      targetX += Math.sin(time * 3 + index) * communicationOscillation;
+      targetY += Math.cos(time * 3 + index) * communicationOscillation;
+      targetZ += Math.sin(time * 3 + index + Math.PI / 2) * communicationOscillation;
     }
     // Phase 2: Form Solid Square (5-10s)
     else if (currentCycleTime >= 5 && currentCycleTime < 10) {
