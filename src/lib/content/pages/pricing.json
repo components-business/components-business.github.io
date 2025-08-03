@@ -1,0 +1,77 @@
+{
+  "title": "Developer Subscription Plans",
+  "subtitle": "Hire world-class developers and IT experts on a flexible subscription basis",
+  "plans": [
+    {
+      "name": "Essential",
+      "price": "$8,000",
+      "period": "/month",
+      "description": "Perfect for startups and small teams",
+      "features": [
+        "1 dedicated developer",
+        "Full-stack or specialized roles",
+        "40 hours per week",
+        "Direct team communication",
+        "Code reviews & documentation",
+        "Pause or cancel anytime"
+      ],
+      "highlight": false,
+      "cta": "Start Subscription"
+    },
+    {
+      "name": "Growth",
+      "price": "$22,000",
+      "period": "/month",
+      "description": "Ideal for scaling companies and complex projects",
+      "features": [
+        "3 dedicated team members",
+        "Mix of developers & architects",
+        "120 hours per week total",
+        "Project management included",
+        "Technical strategy sessions",
+        "Priority support",
+        "Advanced integrations",
+        "Monthly progress reviews"
+      ],
+      "highlight": true,
+      "cta": "Scale Your Team"
+    },
+    {
+      "name": "Enterprise",
+      "price": "$45,000",
+      "period": "/month",
+      "description": "For large organizations and mission-critical projects",
+      "features": [
+        "6+ dedicated experts",
+        "Senior developers & architects",
+        "Full-time team availability",
+        "Dedicated project manager",
+        "Technical leadership",
+        "Custom integrations",
+        "SLA guarantees",
+        "Weekly stakeholder calls",
+        "Enterprise security compliance"
+      ],
+      "highlight": false,
+      "cta": "Get Enterprise Team"
+    }
+  ],
+  "faq": [
+    {
+      "question": "How quickly can we get started?",
+      "answer": "Most subscriptions begin within 2-3 business days. We match you with developers based on your specific technology stack and project requirements."
+    },
+    {
+      "question": "Can we pause or modify our subscription?",
+      "answer": "Yes, you can pause, upgrade, or downgrade your subscription with 30 days notice. Perfect for seasonal projects or changing business needs."
+    },
+    {
+      "question": "What types of developers are available?",
+      "answer": "We have specialists in all major technologies: React/Node.js, Python/Django, .NET, mobile development, DevOps, cloud architecture, and emerging technologies like AI/ML."
+    },
+    {
+      "question": "How do you ensure quality and communication?",
+      "answer": "All developers are rigorously vetted with technical assessments and client interviews. We provide regular progress updates, code reviews, and direct communication channels."
+    }
+  ]
+}

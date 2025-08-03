@@ -5,15 +5,18 @@
   const pageData = data.aboutPageData;
 
   onMount(() => {
-    sceneStore.set({
+    sceneStore.update(store => ({
+      ...store,
       centralStructureTargetPosition: [0, 0, 0],
       centralStructureTargetRotation: [0, 0, 0],
       componentSpawnRate: 10,
       componentSpeed: 0.05,
       sceneState: 'sphere',
       cameraPosition: [0, 0, 7],
-      cameraLookAt: [0, 0, 0]
-    });
+      cameraLookAt: [0, 0, 0],
+      colorAnimationEnabled: true,
+      particleAnimationSpeed: 1.2
+    }));
   });
 
   onDestroy(() => {

@@ -1,14 +1,25 @@
 {
-  "title": "Welcome to the Homepage",
+  "title": "Hire Elite Developers & IT Consultants",
   "blocks": [
     {
       "type": "text",
-      "content": "This is the main page of our site. Explore the interactive scene behind the content!"
+      "content": "Scale your development team with our subscription-based model. Access top-tier developers, architects, and IT strategists who become an extension of your business."
     },
     {
-      "type": "image",
-      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIyMCIgcj0iMTIiLz48cGF0aCBkPSJNMTIgNTJjMC0xMSA0MC0xMSA0MCAwdjRIMTJ2LTR6Ii8+PC9zdmc+",
-      "alt": "Homepage image"
+      "type": "text",
+      "content": "Our subscription model gives you flexible access to specialized talent without the overhead of hiring full-time employees. Scale up or down based on your project needs."
+    },
+    {
+      "type": "text",
+      "content": "From full-stack developers and DevOps engineers to solution architects and technical strategists, our curated team of experts delivers enterprise-grade solutions."
+    },
+    {
+      "type": "text",
+      "content": "Unlike traditional consulting firms, our subscription approach ensures continuous collaboration, knowledge retention, and long-term partnership with your organization."
+    },
+    {
+      "type": "text",
+      "content": "Ready to augment your team with world-class talent? Explore our subscription plans and start building tomorrow's technology today."
     }
   ]
 }

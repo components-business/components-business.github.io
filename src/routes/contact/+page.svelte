@@ -5,15 +5,18 @@
   const pageData = data.contactPageData;
 
   onMount(() => {
-    sceneStore.set({
+    sceneStore.update(store => ({
+      ...store,
       centralStructureTargetPosition: [0, 0, 0],
       centralStructureTargetRotation: [0, 0, 0],
       componentSpawnRate: 0.1,
       componentSpeed: 5.0,
       sceneState: 'scatter',
-      cameraPosition: [0, 0, 100],
-      cameraLookAt: [0, 0, 0]
-    });
+      cameraPosition: [0, 0, 15],
+      cameraLookAt: [0, 0, 0],
+      colorAnimationEnabled: true,
+      particleAnimationSpeed: 2.0
+    }));
   });
 
   onDestroy(() => {

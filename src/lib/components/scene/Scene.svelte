@@ -57,6 +57,21 @@
     ];
   }
 
+  // Function to calculate target positions for pricing state (tiered arrangement)
+  const getPricingTargetPosition = (index) => {
+    const tier = Math.floor(index / 33); // 3 tiers with ~33 components each
+    const tierIndex = index % 33;
+    const tierHeight = (tier - 1) * 2; // Spread tiers vertically
+    const radius = 2 + tier * 0.5; // Each tier has different radius
+    
+    const angle = (tierIndex / 33) * Math.PI * 2;
+    const x = Math.cos(angle) * radius;
+    const z = Math.sin(angle) * radius;
+    const y = tierHeight + Math.sin(tierIndex * 0.5) * 0.3; // Add some wave motion
+    
+    return [x, y, z];
+  }
+
   // Initialize components
   onMount(() => {
     for (let i = 0; i < numComponents; i++) {
@@ -65,24 +80,54 @@
         x: (Math.random() - 0.5) * 10,
         y: (Math.random() - 0.5) * 10,
         z: (Math.random() - 0.5) * 10,
-        tweenedPosition: tweened([0, 0, 0], { duration: 1000, easing: cubicOut })
+        tweenedPosition: tweened([0, 0, 0], { duration: 1000, easing: cubicOut }),
+        colorIndex: Math.floor(Math.random() * 6), // Random color index
+        colorChangeTimer: Math.random() * 5000, // Random timer for color changes
+        baseScale: 0.8 + Math.random() * 0.4, // Random base scale between 0.8-1.2
+        pulseOffset: Math.random() * Math.PI * 2 // Random pulse timing offset
       })
     }
   })
 
   let lightRotationAngle = 0;
   let lightPosition = [5, 5, 5]; // Initial position
+  let time = 0;
+  let scrollBasedAngle = 0;
+  let lightIntensity = 1;
+
+  // Helper function to get current color for a component
+  const getCurrentColor = (component) => {
+    if (!$sceneStore.particleColors || $sceneStore.particleColors.length === 0) {
+      return $sceneStore.particleColor;
+    }
+    return $sceneStore.particleColors[component.colorIndex] || $sceneStore.particleColor;
+  };
 
   useTask((delta) => {
+    time += delta;
+    
     // Rotate central structure (or the entire group of components)
     centralStructureRotationY += delta * 0.1
 
-    // Rotate the light
-    lightRotationAngle += delta * 0.5; // Adjust speed as needed
+    // Calculate light rotation based on scroll or time
+    if ($sceneStore.scrollBasedLighting) {
+      // Use scroll position for light rotation (smooth interpolation)
+      scrollBasedAngle = ($sceneStore.scrollY * 0.01) % (Math.PI * 2);
+      lightRotationAngle = scrollBasedAngle;
+      
+      // Vary light intensity based on scroll position
+      lightIntensity = 0.8 + Math.sin($sceneStore.scrollY * 0.005) * 0.3;
+    } else {
+      // Default time-based rotation
+      lightRotationAngle += delta * 0.5;
+      lightIntensity = 1;
+    }
+
     const radius = 10; // Distance from center
+    const lightHeight = 5 + Math.sin(lightRotationAngle * 0.5) * 2; // Vary height slightly
     lightPosition = [
       radius * Math.sin(lightRotationAngle),
-      5, // Keep y constant or vary as needed
+      lightHeight,
       radius * Math.cos(lightRotationAngle)
     ];
 
@@ -94,6 +139,8 @@
         targetPosition = getSphereTargetPosition(index)
       } else if (sceneState === 'scatter') {
         targetPosition = getScatterTargetPosition()
+      } else if (sceneState === 'pricing') {
+        targetPosition = getPricingTargetPosition(index)
       } else {
         targetPosition = [0, 0, 0] // Default to center if state is unknown
       }
@@ -107,6 +154,19 @@
         component.z = pos[2]
       })()
 
+      // Update color animation timer
+      if ($sceneStore.colorAnimationEnabled && $sceneStore.particleColors?.length > 0) {
+        component.colorChangeTimer -= delta * 1000 * $sceneStore.particleAnimationSpeed;
+        if (component.colorChangeTimer <= 0) {
+          component.colorIndex = Math.floor(Math.random() * $sceneStore.particleColors.length);
+          component.colorChangeTimer = 2000 + Math.random() * 3000; // 2-5 seconds
+        }
+      }
+
+      // Calculate pulsing scale
+      const pulseScale = 1 + Math.sin(time * 2 + component.pulseOffset) * 0.1;
+      component.currentScale = component.baseScale * pulseScale;
+
       return component
     })
   })
@@ -117,10 +177,10 @@
 </T.PerspectiveCamera>
 
 <T.AmbientLight intensity={0.5} />
-<!-- Rotating Directional Light -->
+<!-- Scroll-controlled Directional Light -->
 <T.DirectionalLight
   position={lightPosition}
-  intensity={1}
+  intensity={lightIntensity}
   castShadow={true}
 >
   <T.OrthographicCamera
@@ -137,9 +197,18 @@
   rotation.z={$tweenedCentralStructureTargetRotation[2]}
 >
   {#each componentData as component (component.id)}
-    <T.Mesh position={[component.x, component.y, component.z]} castShadow={true} receiveShadow={true}>
+    <T.Mesh 
+      position={[component.x, component.y, component.z]} 
+      scale={[component.currentScale || component.baseScale || 1, component.currentScale || component.baseScale || 1, component.currentScale || component.baseScale || 1]}
+      castShadow={true} 
+      receiveShadow={true}
+    >
       <T.BoxGeometry args={[0.1, 0.1, 0.1]} />
-      <T.MeshStandardMaterial color={$sceneStore.particleColor} />
+      <T.MeshStandardMaterial 
+        color={getCurrentColor(component)}
+        emissive={getCurrentColor(component)}
+        emissiveIntensity={0.1}
+      />
     </T.Mesh>
   {/each}
 </T.Group>

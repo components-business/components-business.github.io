@@ -1,18 +1,25 @@
 {
-  "title": "About Us",
+  "title": "Your Dedicated Development Partner",
   "blocks": [
     {
       "type": "text",
-      "content": "We are a team of passionate developers creating amazing web experiences."
-    },
-    {
-      "type": "image",
-      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTggMjhMMzIgOGwyNCAyMHYyOGE0IDQgMCAwIDEtNCA0SDEyYTQgNCAwIDAgMS00LTRWMjhabT I0IDY0VjQwaDE2djI0Ii8+PC9zdmc+",
-      "alt": "About Us image"
+      "content": "We're a collective of elite developers, system architects, and technology strategists who partner with companies through our innovative subscription model to build exceptional digital products."
     },
     {
       "type": "text",
-      "content": "Our mission is to push the boundaries of what's possible on the web."
+      "content": "Our mission is to democratize access to world-class development talent. We believe every company should have access to the expertise traditionally reserved for tech giants."
+    },
+    {
+      "type": "text",
+      "content": "Our network includes specialists in modern web development, cloud architecture, AI/ML implementation, mobile applications, and enterprise system design. Each expert is carefully vetted and continuously trained."
+    },
+    {
+      "type": "text",
+      "content": "We've helped over 200+ companies scale their development capabilities, from early-stage startups building their first MVP to established enterprises modernizing their technology stack."
+    },
+    {
+      "type": "text",
+      "content": "The subscription model ensures you get consistent, high-quality work while maintaining cost predictability and the flexibility to adjust your team size as needed."
     }
   ]
 }

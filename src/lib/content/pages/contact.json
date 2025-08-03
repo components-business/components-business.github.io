@@ -1,18 +1,33 @@
 {
-  "title": "Contact Us",
+  "title": "Start Your Developer Subscription",
   "blocks": [
     {
       "type": "text",
-      "content": "Feel free to reach out to us through the following channels:"
+      "content": "Ready to scale your development team? Let's discuss your project requirements and match you with the perfect developers for your subscription."
     },
     {
       "type": "text",
-      "content": "Email: info@example.com"
+      "content": "📧 Email: team@components.business"
     },
     {
-      "type": "image",
-      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMTAiLz48cGF0aCBkPSJNMzIgMTJ2LThNMzIgNjB2LThNMTIgMzJoLThNNjAgMzJoLThNNDUuMjUgMTguNzVsNS42Ni01LjY2TTEzLjA5IDQ2LjkxbC01LjY2IDUuNjZNNDUuMjUgNDUuMjVsNS42NiA1LjY2TTEzLjA5IDE3LjA5bC01LjY2LTUuNjYiLz48L3N2Zz4=",
-      "alt": "Contact Us image"
+      "type": "text",
+      "content": "📞 Phone: +1 (555) 123-4567"
+    },
+    {
+      "type": "text",
+      "content": "💬 Slack: Join our client community for real-time support"
+    },
+    {
+      "type": "text",
+      "content": "Response Time: Within 2 hours during business hours"
+    },
+    {
+      "type": "text",
+      "content": "Onboarding: Most teams start within 48-72 hours"
+    },
+    {
+      "type": "text",
+      "content": "Schedule a free 30-minute consultation to discuss your project needs and explore how our subscription model can accelerate your development goals."
     }
   ]
 }

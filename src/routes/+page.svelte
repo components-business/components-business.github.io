@@ -5,15 +5,18 @@
   const pageData = data.homePageData;
 
   onMount(() => {
-    sceneStore.set({
+    sceneStore.update(store => ({
+      ...store,
       centralStructureTargetPosition: [0, 0, 0],
       centralStructureTargetRotation: [0, 0, 0],
       componentSpawnRate: 50,
       componentSpeed: 0.01,
       sceneState: 'mesh',
       cameraPosition: [0, 0, 10],
-      cameraLookAt: [0, 0, 0]
-    });
+      cameraLookAt: [0, 0, 0],
+      colorAnimationEnabled: true,
+      particleAnimationSpeed: 0.8
+    }));
   });
 
   onDestroy(() => {
