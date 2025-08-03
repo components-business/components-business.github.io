@@ -215,14 +215,16 @@
   .feature-icon {
     width: 48px;
     height: 48px;
-    background: var(--c-fg);
+    background: var(--c-bg);
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--s); /* Centered horizontally */
-    color: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--c-border);
+    svg {
+      fill: var(--c-fg);
+    }
   }
 
   .feature-icon svg {

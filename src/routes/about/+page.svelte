@@ -225,15 +225,18 @@
   .value-icon {
     width: 56px;
     height: 56px;
-    background: var(--c-fg);
+    background: var(--c-bg);
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: var(--s);
     color: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 3px 8px rgba(16, 185, 129, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 3px 8px var(--c-theme1);
+    border: 1px solid var(--c-border);
+    svg {
+      fill: var(--c-fg);
+    }
   }
 
   .value-icon svg {
