@@ -11,16 +11,16 @@
         },
         {
           "question": "What information do you need to get started?",
-          "answer": "We'll need details about your project scope, preferred technologies, timeline, and any specific skills required. We also discuss your team structure preferences and communication methods to ensure the best fit."
+          "answer": "We'll need details about your project scope, preferred technologies, timeline, and any specific skills required. We also discuss your team structure preferences and communication methods to ensure the best fit. We can also discuss and define all these aspects together."
         },
         {
           "question": "Do you offer a trial period?",
-          "answer": "Yes, we offer a 2-week trial period for new clients to evaluate the fit. This allows you to work with your assigned team and ensure they meet your expectations before committing to a full subscription."
+          "answer": "We do not offer a trial period. For new clients, to evaluate the fit, we directly engage in a discussion, and work with your assigned team to ensure we meet your expectations, before committing to a full subscription."
         }
       ]
     },
     {
-      "name": "Subscription Management", 
+      "name": "Subscription Management",
       "questions": [
         {
           "question": "Can we pause or modify our subscription?",

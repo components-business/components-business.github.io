@@ -159,6 +159,7 @@
     color: var(--c-fg);
     text-shadow: var(--text-shadow);
     line-height: 1.4;
+    text-align: left;
   }
 
   .faq-answer {
@@ -193,7 +194,7 @@
     padding: calc(var(--s) * 3);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    /* text-align: center; */
     
     opacity: 0;
     transform: scale(0.95) translateY(30px);
