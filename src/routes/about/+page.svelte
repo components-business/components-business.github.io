@@ -225,7 +225,7 @@
   .value-icon {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(234, 88, 12, 0.5));
+    background: var(--c-fg);
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;

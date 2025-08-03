@@ -5,7 +5,7 @@ export const sceneStore = writable({
   centralStructureTargetRotation: [0, 0, 0],
   componentSpawnRate: 10,
   componentSpeed: 0.05,
-  sceneState: 'mesh', // 'mesh', 'sphere', 'scatter', or 'pricing'
+  sceneState: 'mesh', // 'mesh', 'sphere', 'scatter', 'pricing', 'contact', 'faq', or 'careers'
   cameraPosition: [0, 0, 10],
   cameraLookAt: [0, 0, 0],
   particleColor: '#007bff', // Default color

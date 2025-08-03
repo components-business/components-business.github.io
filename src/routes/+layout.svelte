@@ -324,7 +324,7 @@
                   color var(--animation-speed-medium) var(--animation-ease);
     }
     a {
-      color: var(--c-a);
+      color: var(--c-particle-accent4);
       transition: color var(--animation-speed-fast) var(--animation-ease);
     }
     a:hover {

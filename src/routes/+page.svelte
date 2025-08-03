@@ -215,7 +215,7 @@
   .feature-icon {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.6), rgba(234, 88, 12, 0.6));
+    background: var(--c-fg);
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;

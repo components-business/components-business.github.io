@@ -1,6 +1,33 @@
 <script>
   let { data } = $props();
   const pageData = data.faqPageData;
+  // Simple slugify function
+  function slugify(text) {
+    return text
+      .toString()
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]+/g, '')
+      .replace(/--+/g, '-');
+  }
+
+  let currentHash = $state('');
+
+  $effect(() => {
+    const updateHash = () => {
+      currentHash = window.location.hash;
+    };
+
+    updateHash(); // Set initial hash
+    window.addEventListener('hashchange', updateHash);
+
+    return () => {
+      window.removeEventListener('hashchange', updateHash);
+    };
+  });
 </script>
 
 <!-- FAQ Header -->
@@ -14,12 +41,12 @@
 <!-- FAQ Categories -->
 <div class="faq-content">
   {#each pageData.categories as category, categoryIndex}
-    <div class="faq-category" style="animation-delay: {(categoryIndex + 1) * 0.2}s">
-      <h2 class="category-title">{category.name}</h2>
+    <div class="faq-category" id="{slugify(category.name)}" class:active-link={currentHash === `#${slugify(category.name)}`} style="animation-delay: {(categoryIndex + 1) * 0.2}s">
+      <h2 class="category-title"><a href="#{slugify(category.name)}">{category.name}</a></h2>
       <div class="questions-list">
         {#each category.questions as item, questionIndex}
-          <div class="faq-item" style="animation-delay: {(categoryIndex + 1) * 0.2 + (questionIndex + 1) * 0.1}s">
-            <h3 class="faq-question">{item.question}</h3>
+          <div class="faq-item" id="{slugify(item.question)}" class:active-link={currentHash === `#${slugify(item.question)}`} style="animation-delay: {(categoryIndex + 1) * 0.2 + (questionIndex + 1) * 0.1}s">
+            <h3 class="faq-question"><a href="#{slugify(item.question)}">{item.question}</a></h3>
             <div class="faq-answer">
               <p>{item.answer}</p>
             </div>
@@ -105,6 +132,7 @@
 
   .faq-category {
     margin-bottom: calc(var(--s) * 4);
+    scroll-margin-top: 50vh; /* Adjust as needed to center */
     
     opacity: 0;
     transform: translateX(-100px) scale(0.8);
@@ -135,6 +163,7 @@
     backdrop-filter: blur(6px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all var(--animation-speed-fast) var(--animation-ease);
+    scroll-margin-top: 50vh; /* Adjust as needed to center */
     
     opacity: 0;
     transform: rotateX(-90deg);
@@ -144,12 +173,19 @@
 
   .faq-item:hover,
   .faq-item:focus,
-  .faq-item:active {
+  .faq-item:active,
+  .faq-item.active-link {
     background: rgba(255, 255, 255, 0.16);
     border-color: rgba(255, 255, 255, 0.28);
     backdrop-filter: blur(15px);
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
+  }
+
+  .faq-category.active-link {
+    border-color: var(--c-particle-accent2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01);
   }
 
   .faq-question {

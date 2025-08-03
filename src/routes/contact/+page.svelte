@@ -8,7 +8,7 @@
 <div class="contact-header">
   <h1 class="page-title">{pageData.title}</h1>
   <div class="intro-card">
-    <p class="intro-text">{pageData.blocks[0]?.content}</p>
+    <p class="intro-text">Whether you have a business inquiry, a job application, or just want to say hello, we're here to listen. Reach out to us through the methods below.</p>
   </div>
 </div>
 

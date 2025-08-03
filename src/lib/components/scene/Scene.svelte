@@ -144,6 +144,114 @@
   };
 
 
+  // New function for Careers page animation: Communicating Builders
+  const getCareersTargetPosition = (index, time) => {
+    const cycleDuration = 20; // seconds for one full cycle
+    const currentCycleTime = time % cycleDuration;
+
+    const gridSize = Math.ceil(Math.cbrt(numComponents));
+    const solidSquareScale = 2; // Adjust for medium size
+    const solidSpacing = 0.1; // No space between particles
+    const maxExplosionDistance = 10;
+
+    let targetX, targetY, targetZ;
+
+    // Define key positions for transitions
+    // Note: initialScatteredPos should ideally be the actual initial position of the component
+    // For simplicity here, we'll use a random scatter for the start of phase 1 if componentData[index] is not yet populated
+    const initialScatteredPos = componentData[index] ? [componentData[index].x, componentData[index].y, componentData[index].z] : [(Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10];
+    
+    const looseGridPos = (() => {
+        const targetGridSize = Math.ceil(Math.cbrt(numComponents));
+        const targetSpacing = 0.5;
+        const gridX = (index % targetGridSize) - (targetGridSize - 1) / 2;
+        const gridY = (Math.floor(index / targetGridSize) % targetGridSize) - (targetGridSize - 1) / 2;
+        const gridZ = Math.floor(index / (targetGridSize * targetGridSize)) - (targetGridSize - 1) / 2;
+        return [gridX * targetSpacing, gridY * targetSpacing, gridZ * targetSpacing];
+    })();
+    
+    const getSolidSquarePosition = (idx, gSize, sqScale, sSpacing) => {
+        const x_solid = ((idx % gSize) - (gSize - 1) / 2) * sSpacing * sqScale;
+        const y_solid = ((Math.floor(idx / gSize) % gSize) - (gSize - 1) / 2) * sSpacing * sqScale;
+        const z_solid = (Math.floor(idx / (gSize * gSize)) - (gSize - 1) / 2) * sSpacing * sqScale;
+        return [x_solid, y_solid, z_solid];
+    };
+    const solidSquarePos = getSolidSquarePosition(index, gridSize, solidSquareScale, solidSpacing);
+
+    const explodedPos = (() => {
+        const center = [0, 0, 0];
+        const directionX = solidSquarePos[0] - center[0];
+        const directionY = solidSquarePos[1] - center[1];
+        const directionZ = solidSquarePos[2] - center[2];
+        const magnitude = Math.sqrt(directionX * directionX + directionY * directionY + directionZ * directionZ);
+        const normalizedDirectionX = magnitude === 0 ? 0 : directionX / magnitude;
+        const normalizedDirectionY = magnitude === 0 ? 0 : directionY / magnitude;
+        const normalizedDirectionZ = magnitude === 0 ? 0 : directionZ / magnitude;
+        return [
+            solidSquarePos[0] + normalizedDirectionX * maxExplosionDistance,
+            solidSquarePos[1] + normalizedDirectionY * maxExplosionDistance,
+            solidSquarePos[2] + normalizedDirectionZ * maxExplosionDistance
+        ];
+    })();
+
+
+    // Phase 1: Communication/Building (0-5s)
+    if (currentCycleTime >= 0 && currentCycleTime < 5) {
+      const phaseTime = currentCycleTime; // 0 to 5
+      const progress = phaseTime / 5; // 0 to 1
+
+      // Interpolate from initial scattered to loose grid
+      targetX = initialScatteredPos[0] * (1 - progress) + looseGridPos[0] * progress;
+      targetY = initialScatteredPos[1] * (1 - progress) + looseGridPos[1] * progress;
+      targetZ = initialScatteredPos[2] * (1 - progress) + looseGridPos[2] * progress;
+
+      // Add communication oscillation on top of the interpolation
+      const communicationOscillation = (Math.sin(time * 0.5 + index * 0.05) + 1) / 2 * 0.5; // 0 to 0.5
+      targetX += Math.sin(time * 2 + index) * communicationOscillation;
+      targetY += Math.cos(time * 2 + index) * communicationOscillation;
+      targetZ += Math.sin(time * 2 + index + Math.PI / 2) * communicationOscillation;
+    }
+    // Phase 2: Form Solid Square (5-10s)
+    else if (currentCycleTime >= 5 && currentCycleTime < 10) {
+      const phaseTime = currentCycleTime - 5; // 0 to 5
+      const progress = phaseTime / 5; // 0 to 1
+
+      // Interpolate from loose grid to solid square
+      targetX = looseGridPos[0] * (1 - progress) + solidSquarePos[0] * progress;
+      targetY = looseGridPos[1] * (1 - progress) + solidSquarePos[1] * progress;
+      targetZ = looseGridPos[2] * (1 - progress) + solidSquarePos[2] * progress;
+    }
+    // Phase 3: Explode (10-15s)
+    else if (currentCycleTime >= 10 && currentCycleTime < 15) {
+      const phaseTime = currentCycleTime - 10; // 0 to 5
+      const progress = phaseTime / 5; // 0 to 1
+
+      // Interpolate from solid square to exploded position
+      targetX = solidSquarePos[0] * (1 - progress) + explodedPos[0] * progress;
+      targetY = solidSquarePos[1] * (1 - progress) + explodedPos[1] * progress;
+      targetZ = solidSquarePos[2] * (1 - progress) + explodedPos[2] * progress;
+    }
+    // Phase 4: Reconstruct (15-20s) - back to solid square
+    else { // currentCycleTime >= 15 && currentCycleTime < 20
+      const phaseTime = currentCycleTime - 15; // 0 to 5
+      const progress = phaseTime / 5; // 0 to 1
+
+      // Interpolate from exploded position back to solid square
+      targetX = explodedPos[0] * (1 - progress) + solidSquarePos[0] * progress;
+      targetY = explodedPos[1] * (1 - progress) + solidSquarePos[1] * progress;
+      targetZ = explodedPos[2] * (1 - progress) + solidSquarePos[2] * progress;
+    }
+
+    // Add subtle random jitter for organic feel (apply to all phases)
+    const jitter = Math.sin(time * 10 + index) * 0.05;
+
+    return [
+      targetX + jitter,
+      targetY + jitter,
+      targetZ + jitter
+    ];
+  };
+
   // Initialize components
   onMount(() => {
     for (let i = 0; i < numComponents; i++) {
@@ -217,6 +325,8 @@
         targetPosition = getContactTargetPosition(index, time)
       } else if (sceneState === 'faq') { // New FAQ state
         targetPosition = getFaqTargetPosition(index, time)
+      } else if (sceneState === 'careers') { // New Careers state
+        targetPosition = getCareersTargetPosition(index, time)
       } else {
         targetPosition = [0, 0, 0] // Default to center if state is unknown
       }

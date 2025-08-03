@@ -31,6 +31,11 @@
           Contact
         </a>
       </li>
+      <li>
+        <a href="/careers" class:active={$page.url.pathname === '/careers'}>
+          Careers
+        </a>
+      </li>
     </ul>
   </div>
 </menu>
