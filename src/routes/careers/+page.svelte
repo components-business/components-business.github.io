@@ -35,7 +35,7 @@
   </section>
 
   <section class="careers-roles">
-    <h2>What We Look For:</h2>
+    <h2>What We Look For</h2>
     <ul>
       <li><strong>System Vision:</strong> The ability to see the big picture, understand how different components interact, and anticipate future needs.</li>
       <li><strong>Architectural Mindset:</strong> A knack for designing scalable, maintainable, and performant software architectures.</li>
@@ -46,7 +46,7 @@
   </section>
 
   <section class="careers-benefits">
-    <h2>What We Provide:</h2>
+    <h2>What We Provide</h2>
     <ul>
       <li><strong>Global Opportunities:</strong> We hire talented individuals from around the world, fostering a truly diverse and inclusive team.</li>
       <li><strong>Comprehensive Social Healthcare:</strong> Full social healthcare coverage for you and your family, ensuring peace of mind.</li>
@@ -85,6 +85,7 @@
   }
 
   .careers-header .subtitle {
+    text-align: center;
     font-size: 1.2rem;
     color: var(--color-theme3);
     margin-top: calc(var(--s) * -1);
@@ -98,7 +99,6 @@
 
   .careers-roles h2,
   .careers-cta h2 {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: 700;
     color: var(--c-fg);
     margin-top: calc(var(--s) * 3);
