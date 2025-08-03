@@ -35,7 +35,7 @@
       </div>
       <h3>Matrix</h3>
       <p>@team:components.business</p>
-      <a href="https://matrix.to/#/@team:components.business" class="contact-cta">Join Matrix</a>
+      <a href="https://matrix.to/#/@team:components.business" class="contact-cta">Matrix Chat</a>
     </div>
   </div>
 </div>
@@ -109,8 +109,8 @@
   }
 
   .intro-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--c-surface);
+    border: 1px solid var(--c-border-glass);
     border-radius: var(--border-radius-lg);
     padding: calc(var(--s) * 2);
     backdrop-filter: blur(8px);
@@ -164,29 +164,12 @@
     justify-content: center; /* Center the grid itself */
   }
 
-  @media (min-width: 480px) {
-    .methods-grid {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: calc(var(--s) * 1.5);
-      justify-content: center; /* Center the grid itself */
-    }
-  }
-
-  @media (min-width: 768px) {
-    .methods-grid {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: calc(var(--s) * 2);
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .methods-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: calc(var(--s) * 2.5);
-    }
-  }
-
   .contact-card {
+    display: flex;
+    align-items: center;
+    jusitfy-content: center;
+    flex-wrap: wrap;
+    gap: var(--s);
     background: var(--c-surface); /* Use a more opaque surface variable */
     border: 1px solid var(--c-border-glass); /* Use border glass variable */
     border-radius: var(--border-radius);
@@ -199,6 +182,17 @@
     opacity: 0;
     transform: scale(0.3) rotateY(90deg);
     animation: contactCardConnect 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    h3, p {
+      margin: 0;
+    }
+    a {
+      flex-grow: 1;
+      width: 100%;
+    }
+    p {
+      flex-grow: 1;
+      text-align: center;
+    }
   }
 
   .contact-card:hover,
@@ -215,14 +209,12 @@
   .contact-card:nth-child(2) { animation-delay: 0.7s; }
 
   .card-icon {
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(234, 88, 12, 0.5));
+    width: calc(var(--s) * 4);
+    height: calc(var(--s) * 4);
     border-radius: var(--border-radius);
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
-    margin: 0 auto var(--s);
     color: rgba(255, 255, 255, 0.85);
     box-shadow: 0 3px 8px rgba(16, 185, 129, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -234,7 +226,8 @@
   }
 
   .contact-card h3 {
-    font-size: 1.3rem;
+    font-size: 1rem;
+    text-transform: lowercase;
     font-weight: 600;
     color: var(--c-fg);
     margin-bottom: var(--s);
@@ -253,7 +246,7 @@
   .contact-cta {
     display: inline-block;
     padding: calc(var(--s) * 0.75) calc(var(--s) * 1.5);
-    background: linear-gradient(135deg, var(--c-particle-accent4), var(--c-particle-accent2));
+    border: 1px solid var(--c-fg);
     color: white;
     text-decoration: none;
     border-radius: var(--border-radius);
@@ -324,9 +317,8 @@
   .info-card:nth-child(2) { animation-delay: 1.3s; }
 
   .info-icon {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, rgba(234, 88, 12, 0.5), rgba(202, 138, 4, 0.5));
+    width: calc(var(--s) * 4);
+    height: calc(var(--s) * 4);
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
